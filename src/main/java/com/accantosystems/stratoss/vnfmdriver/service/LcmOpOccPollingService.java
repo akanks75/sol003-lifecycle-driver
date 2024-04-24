@@ -2,7 +2,6 @@ package com.accantosystems.stratoss.vnfmdriver.service;
 
 import static com.accantosystems.stratoss.vnfmdriver.config.VNFMDriverConstants.COMPLETED_OPERATIONAL_STATES;
 
-import java.io.IOException;
 import java.util.Collections;
 import jakarta.annotation.PreDestroy;
 

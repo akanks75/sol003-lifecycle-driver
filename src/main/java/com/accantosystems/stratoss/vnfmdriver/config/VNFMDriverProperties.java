@@ -6,8 +6,6 @@ import java.util.Map;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import com.accantosystems.stratoss.vnfmdriver.model.alm.ResourceManagerDeploymentLocation;
-
 /**
  * Properties specific to the VNFM Driver.
  *

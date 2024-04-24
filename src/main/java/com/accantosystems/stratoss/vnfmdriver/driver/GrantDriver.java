@@ -4,7 +4,6 @@ import static com.accantosystems.stratoss.vnfmdriver.config.VNFMDriverConstants.
 
 import java.net.URI;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.UUID;
 
 import com.accantosystems.stratoss.common.utils.LoggingUtils;
@@ -12,7 +11,6 @@ import com.accantosystems.stratoss.vnfmdriver.model.MessageDirection;
 import com.accantosystems.stratoss.vnfmdriver.model.MessageType;
 import com.accantosystems.stratoss.vnfmdriver.utils.RequestResponseLogUtils;
 
-import lombok.RequiredArgsConstructor;
 
 import org.etsi.sol003.granting.Grant;
 import org.etsi.sol003.granting.GrantRequest;
@@ -20,7 +18,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.*;
 import org.springframework.security.oauth2.client.AuthorizedClientServiceOAuth2AuthorizedClientManager;
 import org.springframework.security.oauth2.client.InMemoryOAuth2AuthorizedClientService;

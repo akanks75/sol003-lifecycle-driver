@@ -1,7 +1,5 @@
 package org.etsi.sol003.granting;
 
-import org.etsi.sol003.common.ResourceHandle;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
