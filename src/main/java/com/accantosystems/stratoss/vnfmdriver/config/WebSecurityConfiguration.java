@@ -3,11 +3,10 @@ package com.accantosystems.stratoss.vnfmdriver.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
@@ -27,7 +26,7 @@ public class WebSecurityConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf().disable() // Disabling CSRF protection
+            .csrf(csrf -> csrf.disable()) // Disabling CSRF protection
             .authorizeHttpRequests(authz -> authz
                     .requestMatchers("/vnflcm/**").hasRole("USER")
                     .requestMatchers("/grant/**").hasRole("USER")
@@ -35,7 +34,7 @@ public class WebSecurityConfiguration {
                     .requestMatchers("/management/**").hasRole("USER")
                     .anyRequest().denyAll() // Denying all other requests
             )
-            .httpBasic(); // Using HTTP Basic authentication
+            .httpBasic(Customizer.withDefaults()); // Using HTTP Basic authentication
 
         return http.build();
     }
