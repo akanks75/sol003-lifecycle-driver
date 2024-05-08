@@ -5,7 +5,7 @@
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>3.2.5</version>
+        <version>3.3.0-SNAPSHOT</version>
         <relativePath />
         <!-- lookup parent from repository -->
     </parent>
@@ -57,8 +57,8 @@
         <scala.version>2.12</scala.version>
         <snakeyaml.version>2.0</snakeyaml.version>
         <sortpom-maven-plugin.version>2.8.0</sortpom-maven-plugin.version>
-        <spring-beans.version>5.3.21</spring-beans.version>
-        <spring-core.version>5.3.21</spring-core.version>
+        <!-- <spring-beans.version>5.3.21</spring-beans.version>
+        <spring-core.version>5.3.21</spring-core.version> -->
         <springdoc.version>1.6.12</springdoc.version>
         <wiremock.version>4.0.0</wiremock.version>
     </properties>
@@ -67,7 +67,6 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
-            <version>2.15.1</version>
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -89,9 +88,15 @@
             <artifactId>commons-net</artifactId>
             <version>${commons-net.version}</version>
         </dependency>
-        <dependency>
+        <!-- <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
+        </dependency> -->
+        <dependency>
+            <groupId>io.micrometer</groupId>
+            <artifactId>micrometer-bom</artifactId>
+            <version>1.12.5</version>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>net.logstash.logback</groupId>
@@ -179,12 +184,10 @@
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
-            <version>3.1.2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
-            <version>3.1.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -213,6 +216,42 @@
             <version>${snakeyaml.version}</version>
         </dependency>
     </dependencies>
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <build>
         <defaultGoal>spring-boot:run</defaultGoal>
